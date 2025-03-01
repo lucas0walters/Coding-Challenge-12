@@ -16,3 +16,38 @@ metricCardArray.forEach(card => { //Use an array method such as .forEach()
     card.textContent += " - Updated"; //to update each card’s inner text
     card.setAttribute("style", "background-color: greenyellow;"); //or to modify their styles.
 });
+
+//Task 3 - Implemented Dynamic Inventory List
+const inventoryList = document.getElementById("inventoryList");
+
+function addInventoryItem(product) { //Write a function that creates a...
+    let newLi = document.createElement("li"); //new <li> element representing a product
+    newLi.setAttribute("class","product-item"); //Use setAttribute to add a class (e.g., "product-item")
+    newLi.setAttribute("id",product); //or a custom data attribute to the <li>.
+    newLi.setAttribute("onclick",`removeInventoryItem("${product}")`); //Calling the removeInventoryItem function when clicked
+    newLi.textContent = product; //Filling in text content from product
+    inventoryList.appendChild(newLi); //Append the new product item to the inventory list using appendChild.
+};
+
+addInventoryItem("Add a product"); //Testing addInventoryItem
+addInventoryItem("Click me"); //Testing addInventoryItem
+
+let productForm = document.getElementById('productForm');
+let error = document.getElementById('error');
+
+productForm.addEventListener('submit', (event) => { //Adding an event listener for a click of the submit button
+    let productName = document.getElementById('productName').value; //Storing the content of the productName text input
+    if (productName === '') { //Checking if the input is empty
+        error.textContent = 'Product name is required'; //Error message
+        event.preventDefault(); // Prevent form submission
+    } else {
+        error.textContent = '';
+        addInventoryItem(productName); //Calling addInventoryItem()
+        event.preventDefault(); // Prevent form submission
+    }
+});
+
+function removeInventoryItem(id) { //function that removes a specific <li> when it is clicked
+    let invItem = document.getElementById(id); //Setting the clicked item as invItem
+    inventoryList.removeChild(invItem); //Use removeChild within the inventory list to remove the clicked item.
+};
