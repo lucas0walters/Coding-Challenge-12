@@ -51,3 +51,18 @@ function removeInventoryItem(id) { //function that removes a specific <li> when 
     let invItem = document.getElementById(id); //Setting the clicked item as invItem
     inventoryList.removeChild(invItem); //Use removeChild within the inventory list to remove the clicked item.
 };
+
+//Task 4 - Demonstrated Event Bubbling in Customer Section
+const customerCards = document.getElementsByClassName("customer-card");
+const customerSection = document.getElementById("customerSection");
+
+Array.from(customerCards).forEach(card => {
+    card.addEventListener("click", (event) => {
+        console.log(`User clicked ${card.innerHTML}`);
+        event.stopPropagation();
+    });    
+});
+
+customerSection.addEventListener("click", (event) => {
+    console.log(`User clicked customerSection`);
+});    
