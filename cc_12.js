@@ -29,8 +29,8 @@ function addInventoryItem(product) { //Write a function that creates a...
     inventoryList.appendChild(newLi); //Append the new product item to the inventory list using appendChild.
 };
 
-addInventoryItem("Add a product"); //Testing addInventoryItem
 addInventoryItem("Click me"); //Testing addInventoryItem
+addInventoryItem("Add a product below"); //Testing addInventoryItem
 
 let productForm = document.getElementById('productForm');
 let error = document.getElementById('error');
