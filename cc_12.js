@@ -30,8 +30,8 @@ const inventoryList = document.getElementById("inventoryList");
 function addInventoryItem(product) { //Write a function that creates a...
     let newLi = document.createElement("li"); //new <li> element representing a product
     newLi.setAttribute("class","product-item"); //Use setAttribute to add a class (e.g., "product-item")
-    newLi.setAttribute("id",product); //or a custom data attribute to the <li>.
-    newLi.addEventListener("click", () => {removeInventoryItem(product)}); //Adding an event listener to call removeInventoryItem function when clicked
+    newLi.setAttribute("dataset",product); //or a custom data attribute to the <li>.
+    newLi.addEventListener("click", () => {removeInventoryItem(newLi)}); //Adding an event listener to call removeInventoryItem function when clicked
     newLi.textContent = product; //Filling in text content from product
     inventoryList.appendChild(newLi); //Append the new product item to the inventory list using appendChild.
 };
@@ -54,9 +54,8 @@ productForm.addEventListener('submit', (event) => { //Adding an event listener f
     }
 });
 
-function removeInventoryItem(id) { //function that removes a specific <li> when it is clicked
-    let invItem = document.getElementById(id); //Setting the clicked item as invItem
-    inventoryList.removeChild(invItem); //Use removeChild within the inventory list to remove the clicked item.
+function removeInventoryItem(item) { //Write a seperate function that removes a specific <li> when it is clicked
+    inventoryList.removeChild(item); //Use removeChild within the inventory list to remove the clicked item.
 };
 
 //Task 4 - Demonstrated Event Bubbling in Customer Section
