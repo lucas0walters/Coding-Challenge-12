@@ -44,7 +44,7 @@ let error = document.getElementById('error');
 
 productForm.addEventListener('submit', (event) => { //Adding an event listener for a click of the submit button
     let productName = document.getElementById('productName').value; //Storing the content of the productName text input
-    if (productName === '') { //Checking if the input is empty
+    if (productName.trim() === '') { //Checking if the input is empty
         error.textContent = 'Product name is required'; //Error message
         event.preventDefault(); // Prevent form submission
     } else {
