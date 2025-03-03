@@ -5,7 +5,7 @@ const revenueCard = document.createElement("div"); //Create a new <div> element 
 
 revenueCard.setAttribute("class","metric-card"); //Use setAttribute to assign a class (e.g., "metric-card")
 revenueCard.setAttribute("id","revenueCard"); //and an id (e.g., "revenueCard") to the new element.
-revenueCard.textContent = "Revenue: $0"; //Populate the card with a title ("Revenue") and a placeholder value (e.g., "$0").
+revenueCard.innerHTML = "<h3>Revenue</h3><p>$0</p>"; //Populate the card with a title ("Revenue") and a placeholder value (e.g., "$0").
 dashboard.appendChild(revenueCard); //Append the new metric card to the dashboard container using appendChild.
 
 //Task 2 - Updated Metric Cards via Array Conversion
@@ -13,7 +13,7 @@ const metricCardList = document.querySelectorAll(".metric-card"); //Use document
 const metricCardArray = Array.from(metricCardList); //Convert the resulting NodeList into an array (using Array.from).
 
 metricCardArray.forEach(card => { //Use an array method such as .forEach()
-    card.textContent += " - Updated"; //to update each card’s inner text
+    card.innerHTML += "<p><i> - Updated</i></p>"; //to update each card’s inner text
     card.setAttribute("style", "background-color: greenyellow;"); //or to modify their styles.
 });
 
