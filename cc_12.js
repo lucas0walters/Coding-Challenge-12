@@ -59,10 +59,10 @@ function removeInventoryItem(item) { //Write a seperate function that removes a 
 };
 
 //Task 4 - Demonstrated Event Bubbling in Customer Section
-const customerCards = document.getElementsByClassName("customer-card");
+const customerCards = document.querySelectorAll(".customer-card");
 const customerSection = document.getElementById("customerSection");
 
-Array.from(customerCards).forEach(card => {
+customerCards.forEach(card => {
     card.addEventListener("click", (event) => {
         console.log(`User clicked ${card.innerHTML}`);
         event.stopPropagation();
