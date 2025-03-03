@@ -21,7 +21,7 @@ const metricCardArray = Array.from(metricCardList); //Convert the resulting Node
 
 metricCardArray.forEach(card => { //Use an array method such as .forEach()
     card.innerHTML += "<p><i> - Updated</i></p>"; //to update each card’s inner text
-    card.style.backgroundColor("greenyellow"); //or to modify their styles.
+    card.style.backgroundColor = "greenyellow"; //or to modify their styles.
 });
 
 //Task 3 - Implemented Dynamic Inventory List
@@ -31,7 +31,7 @@ function addInventoryItem(product) { //Write a function that creates a...
     let newLi = document.createElement("li"); //new <li> element representing a product
     newLi.setAttribute("class","product-item"); //Use setAttribute to add a class (e.g., "product-item")
     newLi.setAttribute("id",product); //or a custom data attribute to the <li>.
-    newLi.setAttribute("onclick",`removeInventoryItem("${product}")`); //Calling the removeInventoryItem function when clicked
+    newLi.addEventListener("click", () => {removeInventoryItem(product)}); //Adding an event listener to call removeInventoryItem function when clicked
     newLi.textContent = product; //Filling in text content from product
     inventoryList.appendChild(newLi); //Append the new product item to the inventory list using appendChild.
 };
