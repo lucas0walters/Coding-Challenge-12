@@ -59,16 +59,16 @@ function removeInventoryItem(item) { //Write a seperate function that removes a 
 };
 
 //Task 4 - Demonstrated Event Bubbling in Customer Section
-const customerCards = document.querySelectorAll(".customer-card");
-const customerSection = document.getElementById("customerSection");
+const customerCards = document.querySelectorAll(".customer-card"); //using querySelectorAll to select all elements with the class customer cards
+const customerSection = document.getElementById("customerSection"); //using getElementById to get the parent container
 
-customerCards.forEach(card => {
-    card.addEventListener("click", (event) => {
-        console.log(`User clicked ${card.innerHTML}`);
-        event.stopPropagation();
+customerCards.forEach(card => { //Looping through customerCards array
+    card.addEventListener("click", (event) => { //Attach click event listeners to each customer card.
+        console.log(`User clicked ${card.innerHTML}`); //In the customer card's click event handler, log a message
+        event.stopPropagation(); //call stopPropagation() so that the parent's event handler does not trigger
     });    
 });
 
-customerSection.addEventListener("click", (event) => {
-    console.log(`User clicked customerSection`);
+customerSection.addEventListener("click", () => { //Attach click event listener to the parent container card.
+    console.log(`User clicked customerSection`); //Logs a message
 });    
