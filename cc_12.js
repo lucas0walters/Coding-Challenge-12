@@ -1,14 +1,21 @@
 //Task 1 - Created Revenue Metric Card
 const dashboard = document.getElementById("dashboard"); //Use both document.getElementById
 const dashboardSelector = document.querySelector('#dashboard'); //and document.querySelector to select the dashboard container.
-const revenueCard = document.createElement("div"); //Create a new <div> element using createElement to represent the metric card.
 
-revenueCard.setAttribute("class","metric-card"); //Use setAttribute to assign a class (e.g., "metric-card")
-revenueCard.setAttribute("id","revenueCard"); //and an id (e.g., "revenueCard") to the new element.
-revenueCard.innerHTML = "<h3>Revenue</h3><p>$0</p>"; //Populate the card with a title ("Revenue") and a placeholder value (e.g., "$0").
-dashboard.appendChild(revenueCard); //Append the new metric card to the dashboard container using appendChild.
+function createMetricCard(id, title, initvalue) { //Making card creation repeatable through a function
+    let card = document.createElement("div"); //Create a new <div> element using createElement to represent the metric card.
+    card.setAttribute("class","metric-card"); //Use setAttribute to assign a class (e.g., "metric-card")
+    card.setAttribute("id",id); //and an id (e.g., "revenueCard") to the new element.
+    card.innerHTML = `<h3>${title}</h3><p>$${initvalue}</p>`; //Populate the card with a title ("Revenue") and a placeholder value (e.g., "$0").
+    dashboard.appendChild(card); //Append the new metric card to the dashboard container using appendChild.    
+};
+
+createMetricCard("revenueCard", "Revenue", 0);
 
 //Task 2 - Updated Metric Cards via Array Conversion
+createMetricCard("profitCard", "Profit", 0);
+createMetricCard("expensesCard", "Expenses", 0);
+
 const metricCardList = document.querySelectorAll(".metric-card"); //Use document.querySelectorAll to select all elements with the class "metric-card".
 const metricCardArray = Array.from(metricCardList); //Convert the resulting NodeList into an array (using Array.from).
 
