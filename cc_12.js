@@ -64,7 +64,7 @@ const customerSection = document.getElementById("customerSection"); //using getE
 
 customerCards.forEach(card => { //Looping through customerCards array
     card.addEventListener("click", (event) => { //Attach click event listeners to each customer card.
-        console.log(`User clicked ${card.innerHTML}`); //In the customer card's click event handler, log a message
+        console.log(`User clicked ${event.target.textContent}`); //In the customer card's click event handler, log a message
         event.stopPropagation(); //call stopPropagation() so that the parent's event handler does not trigger
     });    
 });
