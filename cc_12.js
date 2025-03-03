@@ -10,18 +10,18 @@ function createMetricCard(id, title, initvalue) { //Making card creation repeata
     dashboard.appendChild(card); //Append the new metric card to the dashboard container using appendChild.    
 };
 
-createMetricCard("revenueCard", "Revenue", 0);
+createMetricCard("revenueCard", "Revenue", 0); //Invoking our createMetricCard() for the Revenue Card
 
 //Task 2 - Updated Metric Cards via Array Conversion
-createMetricCard("profitCard", "Profit", 0);
-createMetricCard("expensesCard", "Expenses", 0);
+createMetricCard("profitCard", "Profit", 0); //Repeating this process
+createMetricCard("expensesCard", "Expenses", 0); //"Your dashboard now includes multiple metric cards (e.g., Revenue, Profit, Expenses)."
 
 const metricCardList = document.querySelectorAll(".metric-card"); //Use document.querySelectorAll to select all elements with the class "metric-card".
 const metricCardArray = Array.from(metricCardList); //Convert the resulting NodeList into an array (using Array.from).
 
 metricCardArray.forEach(card => { //Use an array method such as .forEach()
     card.innerHTML += "<p><i> - Updated</i></p>"; //to update each card’s inner text
-    card.setAttribute("style", "background-color: greenyellow;"); //or to modify their styles.
+    card.style.backgroundColor("greenyellow"); //or to modify their styles.
 });
 
 //Task 3 - Implemented Dynamic Inventory List
